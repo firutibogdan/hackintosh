@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "788131092574",
+    "firebase_url": "https://foodwaste-564c9.firebaseio.com",
+    "project_id": "foodwaste-564c9",
+    "storage_bucket": "foodwaste-564c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:788131092574:android:44e84272ec9b0304",
+        "android_client_info": {
+          "package_name": "com.hackintosh.foodwaste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "788131092574-o9qhfommvreq6ii7a49ip11ejnnufsec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hackintosh.foodwaste",
+            "certificate_hash": "93b2ce01735f1bec370f91fc16736f94c2b3ba94"
+          }
+        },
+        {
+          "client_id": "788131092574-m1n2p6qklurnhb7m54slfnmm5ur5u2vs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaKjPMl7CxtUh7KeUVCPYydvKOGbfA6So"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "788131092574-m1n2p6qklurnhb7m54slfnmm5ur5u2vs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
