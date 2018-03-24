@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 
-public class choose extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
+public class choose extends AppCompatActivity implements View.OnClickListener {
 
 
     @Override
@@ -43,6 +43,4 @@ public class choose extends AppCompatActivity implements OnMapReadyCallback, Vie
         }
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) { }
 }

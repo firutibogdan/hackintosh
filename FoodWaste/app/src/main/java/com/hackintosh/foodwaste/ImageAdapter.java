@@ -1,6 +1,7 @@
 package com.hackintosh.foodwaste;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -42,14 +43,15 @@ public class ImageAdapter extends BaseAdapter {
             textView = new TextView(mContext);
             relativeLayout = new RelativeLayout(mContext);
             imageView.setLayoutParams(new GridView.LayoutParams(400, 200));
-            textView.setLayoutParams(new GridView.LayoutParams(700, 200));
-            relativeLayout.setLayoutParams(new GridView.LayoutParams(700, 200));
+            textView.setLayoutParams(new GridView.LayoutParams(800, 200));
+            relativeLayout.setLayoutParams(new GridView.LayoutParams(800, 200));
             relativeLayout.setPadding(8, 8, 8 ,8);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
             textView.setPadding(400, 100, 8, 8);
-            textView.setText(busses[position]);
-            imageView.setImageResource(mThumbIds[0]);
+            textView.setText(products[position]);
+            textView.setTextColor(Color.WHITE);
+            imageView.setImageResource(mThumbIds[position]);
             
             relativeLayout.addView(imageView);
             relativeLayout.addView(textView);
@@ -57,15 +59,27 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         // references to our images
-        private Integer[] mThumbIds = {
-                R.drawable.bus, R.drawable.bus,
-                R.drawable.bus, R.drawable.bus,
-                R.drawable.bus, R.drawable.bus
+        public static final Integer[] mThumbIds = {
+                R.drawable.cascaval, R.drawable.paste,
+                R.drawable.carnatia, R.drawable.carnati,
+                R.drawable.parmezan, R.drawable.lapte,
+                R.drawable.oua, R.drawable.branza,
+                R.drawable.sunca, R.drawable.salam,
+                R.drawable.rosii, R.drawable.castraveti,
+                R.drawable.ceapa, R.drawable.cartofi,
+                R.drawable.morcovi, R.drawable.mere,
+                R.drawable.portocale, R.drawable.lamai,
+                R.drawable.banane,
         };
 
-        private String[] busses = {
-                "Branza", "Oua",
-                "B 102 CAR", "B 103 CAR",
-                "B 104 CAR", "B 105 CAR"
+        public static final String[] products = {
+                "Cascaval", "Paste", "Carnati afumati",
+                "Carnati proaspeti", "Parmezan",
+                "Lapte", "Oua", "Branza",
+                "Sunca", "Salam", "Rosii",
+                "Castraveti", "Ceapa",
+                "Cartofi", "Morcovi",
+                "Mere", "Portocale",
+                "Lamai", "Banane"
         };
     }

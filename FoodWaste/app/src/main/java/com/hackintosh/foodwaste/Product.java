@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 
-public class choose1 extends AppCompatActivity implements View.OnClickListener {
+public class Product extends AppCompatActivity implements View.OnClickListener {
 
 
     @Override
@@ -21,16 +21,7 @@ public class choose1 extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose1);
 
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this));
 
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(choose1.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override
@@ -42,4 +33,5 @@ public class choose1 extends AppCompatActivity implements View.OnClickListener {
                 break;
         }
     }
+
 }
