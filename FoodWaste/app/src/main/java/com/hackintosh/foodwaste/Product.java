@@ -1,60 +1,69 @@
 package com.hackintosh.foodwaste;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+public class product implements java.io.Serializable{
+    private Integer ttl;
+    private Integer maxTtl; // how much time this product can stay unused until it goes bad
+    private String name;
+    private Double quantity;
+    private int day;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
+    product(Integer ttl, Integer maxTtl, String name, Double quantity, int day) {
+        this.quantity = quantity;
+        this.name = name;
+        this.maxTtl = maxTtl;
+        this.ttl = ttl;
+        this.setDay(day);
+    }
+    product() {
 
-public class Product extends AppCompatActivity implements View.OnClickListener {
-
-    TextView textView;
-    ImageView imageView;
-    EditText editText;
-    int index;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.product);
-
-        textView = findViewById(R.id.Name);
-        imageView = findViewById(R.id.productImage);
-        editText = findViewById(R.id.quantity);
-
-        Intent i = getIntent();
-        index = i.getIntExtra("index", 0);
-
-        textView.setText(ImageAdapter.products[index]);
-        textView.setTextSize(40);
-        imageView.setImageResource(ImageAdapter.mThumbIds[index]);
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.OK:
-                //TODO: Add product to your list
-                try {
-                    String q = editText.getText().toString();
-                    q = q.replace(',', '.');
-                    double quantitiy = Double.parseDouble(q);
-                    Intent intent = new Intent(this, choose.class);
-                    startActivity(intent);
-                    break;
-                } catch (NumberFormatException e) {
-                    Toast.makeText(Product.this, "Incorrect quantity!", Toast.LENGTH_SHORT).show();
-                }
-        }
+    public Integer getTtl() {
+        return ttl;
     }
 
+    public void setTtl(Integer ttl) {
+        this.ttl = ttl;
+    }
+
+    public Integer getMaxTtl() {
+        return maxTtl;
+    }
+
+    public void setMaxTtl(Integer maxTtl) {
+        this.maxTtl = maxTtl;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+    public void decTtl() {
+        --this.ttl;
+    }
+
+    public void useProduct(double used) {
+        this.quantity -= used;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+
+    public void setDay(int day) {
+        this.day = day;
+    }
 }

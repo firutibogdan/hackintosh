@@ -13,13 +13,44 @@ import android.widget.Toast;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 public class choose1 extends AppCompatActivity implements View.OnClickListener {
 
+    public user u;
+    public preset pr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose1);
+
+        File file = new File("user_storage_197466588299931246658290017389927333");
+        if (file.exists()) {
+            try {
+                FileInputStream fileIn = new FileInputStream("user_storage_197466588299931246658290017389927333");
+                ObjectInputStream in = new ObjectInputStream(fileIn);
+                u = (user) in.readObject();
+                pr = (preset) in.readObject();
+                in.close();
+                fileIn.close();
+            } catch (IOException i) {
+                i.printStackTrace();
+                return;
+            } catch (ClassNotFoundException c) {
+                System.out.println("Employee class not found");
+                c.printStackTrace();
+                return;
+            }
+        } else {
+            u = new user();
+            pr = new preset();
+        }
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
@@ -39,6 +70,24 @@ public class choose1 extends AppCompatActivity implements View.OnClickListener {
             case R.id.product:
                 Intent intent = new Intent(this, choose.class);
                 startActivity(intent);
+                break;
+
+            case R.id.save1:
+
+                try {
+                    FileOutputStream fileOut =
+                            new FileOutputStream("user_storage_197466588299931246658290017389927333");
+                    ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                    out.writeObject(u);
+                    out.writeObject(pr);
+                    out.close();
+                    fileOut.close();
+                } catch (IOException i) {
+                    i.printStackTrace();
+                }
+
+                Intent i = new Intent(this, MainActivity.class);
+                startActivity(i);
                 break;
         }
     }
