@@ -59,7 +59,7 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         // references to our images
-        public static final Integer[] mThumbIds = {
+        static final Integer[] mThumbIds = {
                 R.drawable.cascaval, R.drawable.paste,
                 R.drawable.carnatia, R.drawable.carnati,
                 R.drawable.parmezan, R.drawable.lapte,
@@ -72,7 +72,7 @@ public class ImageAdapter extends BaseAdapter {
                 R.drawable.banane,
         };
 
-        public static final String[] products = {
+        static final String[] products = {
                 "Cascaval", "Paste", "Carnati afumati",
                 "Carnati proaspeti", "Parmezan",
                 "Lapte", "Oua", "Branza",

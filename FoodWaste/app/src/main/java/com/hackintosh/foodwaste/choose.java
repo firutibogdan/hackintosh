@@ -27,8 +27,9 @@ public class choose extends AppCompatActivity implements View.OnClickListener {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(choose.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(choose.this, Product.class);
+                intent.putExtra("index", position);
+                startActivity(intent);
             }
         });
     }
