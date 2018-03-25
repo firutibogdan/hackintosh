@@ -1,9 +1,15 @@
 package com.hackintosh.foodwaste;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,6 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -51,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     try {
                         FileOutputStream fileOut =
-                                new FileOutputStream(new File (getFilesDir(), "fridgetrackerdata"));
+                                new FileOutputStream(new File(getFilesDir(), "fridgetrackerdata"));
                         ObjectOutputStream out = new ObjectOutputStream(fileOut);
                         out.writeObject(u);
                         out.flush();
@@ -67,9 +74,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 case R.id.end_ride:
-                    Intent intent1 = new Intent(this, MyList.class);
-                    startActivity(intent1);
+                    if (new File(getFilesDir(), "fridgetrackerdata").exists()) {
+                        Intent intent1 = new Intent(this, MyList.class);
+                        startActivity(intent1);
+                        break;
+                    } else {
+                        Toast.makeText(MainActivity.this, "Empty list!", Toast.LENGTH_SHORT).show();
+                    }
                     break;
             }
         }
 }
+

@@ -13,7 +13,6 @@
         android:layout_marginEnd="4dp"
         android:background="@drawable/rec"
         android:onClick="onClick"
-        android:text="Recipe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +23,6 @@
         android:layout_marginStart="4dp"
         android:background="@drawable/prod"
         android:onClick="onClick"
-        android:text="Product"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +47,6 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/sav"
         android:onClick="onClick"
-        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
