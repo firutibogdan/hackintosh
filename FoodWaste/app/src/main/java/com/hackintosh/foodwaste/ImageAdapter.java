@@ -37,24 +37,17 @@ public class ImageAdapter extends BaseAdapter {
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView imageView;
             RelativeLayout relativeLayout;
-            TextView textView;
 
             imageView = new ImageView(mContext);
-            textView = new TextView(mContext);
             relativeLayout = new RelativeLayout(mContext);
             imageView.setLayoutParams(new GridView.LayoutParams(400, 200));
-            textView.setLayoutParams(new GridView.LayoutParams(800, 200));
-            relativeLayout.setLayoutParams(new GridView.LayoutParams(800, 200));
+            relativeLayout.setLayoutParams(new GridView.LayoutParams(400, 200));
             relativeLayout.setPadding(8, 8, 8 ,8);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
-            textView.setPadding(400, 100, 8, 8);
-            textView.setText(products[position]);
-            textView.setTextColor(Color.WHITE);
             imageView.setImageResource(mThumbIds[position]);
             
             relativeLayout.addView(imageView);
-            relativeLayout.addView(textView);
             return relativeLayout;
         }
 
@@ -82,4 +75,4 @@ public class ImageAdapter extends BaseAdapter {
                 "Mere", "Portocale",
                 "Lamai", "Banane"
         };
-    }
+}

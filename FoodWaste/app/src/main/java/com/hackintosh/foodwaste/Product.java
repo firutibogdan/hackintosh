@@ -14,9 +14,7 @@ public class product implements java.io.Serializable{
         this.ttl = ttl;
         this.setDay(day);
     }
-    product() {
-
-    }
+    product() { }
 
     public Integer getTtl() {
         return ttl;

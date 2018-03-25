@@ -30,27 +30,6 @@ public class choose1 extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose1);
 
-        File file = new File("user_storage_197466588299931246658290017389927333");
-        if (file.exists()) {
-            try {
-                FileInputStream fileIn = new FileInputStream("user_storage_197466588299931246658290017389927333");
-                ObjectInputStream in = new ObjectInputStream(fileIn);
-                u = (user) in.readObject();
-                pr = (preset) in.readObject();
-                in.close();
-                fileIn.close();
-            } catch (IOException i) {
-                i.printStackTrace();
-                return;
-            } catch (ClassNotFoundException c) {
-                System.out.println("Employee class not found");
-                c.printStackTrace();
-                return;
-            }
-        } else {
-            u = new user();
-            pr = new preset();
-        }
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
@@ -58,8 +37,9 @@ public class choose1 extends AppCompatActivity implements View.OnClickListener {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(choose1.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(choose1.this, ProductInfo.class);
+                intent.putExtra("index", position);
+                startActivity(intent);
             }
         });
     }
@@ -73,21 +53,7 @@ public class choose1 extends AppCompatActivity implements View.OnClickListener {
                 break;
 
             case R.id.save1:
-
-                try {
-                    FileOutputStream fileOut =
-                            new FileOutputStream("user_storage_197466588299931246658290017389927333");
-                    ObjectOutputStream out = new ObjectOutputStream(fileOut);
-                    out.writeObject(u);
-                    out.writeObject(pr);
-                    out.close();
-                    fileOut.close();
-                } catch (IOException i) {
-                    i.printStackTrace();
-                }
-
-                Intent i = new Intent(this, MainActivity.class);
-                startActivity(i);
+                finish();
                 break;
         }
     }
