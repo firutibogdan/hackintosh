@@ -15,7 +15,7 @@ import android.widget.TextView;
  */
 
 public class ImageAdapter extends BaseAdapter {
-        private Context mContext;
+    private Context mContext;
 
         public ImageAdapter(Context c) {
             mContext = c;

@@ -9,43 +9,47 @@
     <Button
         android:id="@+id/recipe"
         android:layout_width="194dp"
-        android:layout_height="45dp"
-        android:text="Recipe"
+        android:layout_height="61dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/rec"
         android:onClick="onClick"
+        android:text="Recipe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/product"
         android:layout_width="194dp"
-        android:layout_height="45dp"
+        android:layout_height="61dp"
         android:layout_marginStart="4dp"
-        android:text="Product"
+        android:background="@drawable/prod"
         android:onClick="onClick"
+        android:text="Product"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <GridView
-        android:id="@+id/gridview"
+        android:id="@+id/gridview1"
         android:layout_width="382dp"
-        android:layout_height="409dp"
+        android:layout_height="390dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/save1"
-        android:layout_width="382dp"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Save"
+        android:background="@drawable/sav"
         android:onClick="onClick"
+        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

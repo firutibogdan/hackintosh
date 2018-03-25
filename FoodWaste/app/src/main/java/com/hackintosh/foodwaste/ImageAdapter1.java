@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -43,6 +44,8 @@ public class ImageAdapter1 extends BaseAdapter {
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView imageView;
             RelativeLayout relativeLayout;
+            TextView textView;
+
 
             user u = new user();
 
@@ -66,25 +69,37 @@ public class ImageAdapter1 extends BaseAdapter {
             pr.addAll(u.getGroceries());
 
             boolean ok = false;
+            product prod = pr.getFirst();
             for (product p : pr) {
                 if (p.getName().equals(productss[position])) {
                     ok = true;
+                    prod = p;
                     break;
                 }
             }
 
                 imageView = new ImageView(mContext);
                 relativeLayout = new RelativeLayout(mContext);
+                textView = new TextView(mContext);
+
             if (ok) {
                 imageView.setLayoutParams(new GridView.LayoutParams(400, 200));
-                relativeLayout.setLayoutParams(new GridView.LayoutParams(400, 200));
-                relativeLayout.setPadding(8, 16, 8, 16);
+                textView.setLayoutParams(new GridView.LayoutParams(850, 500));
+                relativeLayout.setLayoutParams(new GridView.LayoutParams(850, 200));
+                relativeLayout.setPadding(8, 8, 8, 8);
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                imageView.setPadding(8, 16, 8, 16);
+                imageView.setPadding(8, 8, 8, 8);
+                textView.setPadding(400, 20, 8, 8);
+
 
                 imageView.setImageResource(mThumbIds[position]);
+                String toShow = prod.getQuantity().toString() + "\nValabil:\n" +
+                        prod.getTtl().toString() + " zile";
+                textView.setText(toShow);
+
 
                 relativeLayout.addView(imageView);
+                relativeLayout.addView(textView);
             }
             return relativeLayout;
         }

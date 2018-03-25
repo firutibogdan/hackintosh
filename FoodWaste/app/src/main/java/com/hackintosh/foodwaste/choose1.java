@@ -31,13 +31,13 @@ public class choose1 extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.choose1);
 
 
-        GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this));
+        GridView gridview = (GridView) findViewById(R.id.gridview1);
+        gridview.setAdapter(new ImageAdapter2(this));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Intent intent = new Intent(choose1.this, ProductInfo.class);
+                Intent intent = new Intent(choose1.this, recInfo.class);
                 intent.putExtra("index", position);
                 startActivity(intent);
             }

@@ -77,31 +77,6 @@ public class MyList extends AppCompatActivity implements View.OnClickListener {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.save1:
-//                    new File (getFilesDir(), "fridgetrackerdata").delete();
-//                    try {
-//                        FileOutputStream fileOut =
-//                                new FileOutputStream(new File (getFilesDir(), "fridgetrackerdata"));
-//                        ObjectOutputStream out = new ObjectOutputStream(fileOut);
-//                        out.writeObject(u);
-//                        out.flush();
-//                        out.close();
-//                        fileOut.close();
-//                    } catch (IOException i) {
-//                        i.printStackTrace();
-//                    }
-//
-//                    new File (getFilesDir(), "fridgetrackerdata1").delete();
-//                    try {
-//                        FileOutputStream fileOut1 =
-//                                new FileOutputStream(new File (getFilesDir(), "fridgetrackerdata1"));
-//                        ObjectOutputStream out1 = new ObjectOutputStream(fileOut1);
-//                        out1.writeObject(pr);
-//                        out1.flush();
-//                        out1.close();
-//                        fileOut1.close();
-//                    } catch (IOException i) {
-//                        i.printStackTrace();
-//                    }
                     finish();
                     break;
 
